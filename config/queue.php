@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('QUEUE_DRIVER', 'sync'),
+    'default' => env('QUEUE_DRIVER', 'sqs'),
 
     /*
     |--------------------------------------------------------------------------
@@ -50,10 +50,10 @@ return [
 
         'sqs' => [
             'driver' => 'sqs',
-            'key' => 'your-public-key',
-            'secret' => 'your-secret-key',
-            'prefix' => 'https://sqs.us-east-1.amazonaws.com/your-account-id',
-            'queue' => 'your-queue-name',
+            'key' => env('AWS_ACCESS_KEY_ID', 'AKIAIS62RULXZW6RFGYQ'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY', 'qLeVJFkNbphKYa8A5kKGeG+Mo4Yb+14+zMmkrpFb'),
+            'prefix' => 'https://sqs.us-east-1.amazonaws.com/747311940427',
+            'queue' => 'MarketplaceActivationCodeMailQueue',
             'region' => 'us-east-1',
         ],
 
@@ -62,6 +62,15 @@ return [
             'connection' => 'default',
             'queue' => 'default',
             'retry_after' => 90,
+        ],
+
+        'activation_code_queue' => [
+            'driver' => 'sqs',
+            'key' => env('AWS_ACCESS_KEY_ID', 'AKIAIS62RULXZW6RFGYQ'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY', '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'),
+            'prefix' => 'https://sqs.us-east-1.amazonaws.com/747311940427',
+            'queue' => 'MarketplaceActivationCodeMailQueue',
+            'region' => 'us-east-1',
         ],
 
     ],

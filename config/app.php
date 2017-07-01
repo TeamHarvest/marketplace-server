@@ -124,6 +124,8 @@ return [
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
+    'log_max_files' => env('APP_LOG_MAX_FILES', 5),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -166,7 +168,11 @@ return [
         /*
          * Package Service Providers...
          */
-        Laravel\Tinker\TinkerServiceProvider::class,
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class,
+        Aws\Laravel\AwsServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        Lanin\Laravel\ApiDebugger\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -225,6 +231,13 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+        'Entrust' => Zizaco\Entrust\EntrustServiceProvider::class,
+        'AWS' => Aws\Laravel\AwsFacade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        'Debugger' => Lanin\Laravel\ApiDebugger\Facade::class,
 
     ],
 

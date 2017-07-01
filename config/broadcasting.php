@@ -53,6 +53,13 @@ return [
             'driver' => 'null',
         ],
 
+        'sns' => [
+            'driver' => 'sns',
+            'aws_key' => env('AWS_ACCESS_KEY_ID', 'AKIAIS62RULXZW6RFGYQ'),
+            'aws_secret' => env('AWS_SECRET_ACCESS_KEY', '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'),
+            'aws_region' => env('AWS_REGION', 'us-east-1')
+        ],
+
     ],
 
 ];
